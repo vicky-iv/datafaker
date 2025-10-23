@@ -10,6 +10,18 @@ First and foremost thanks to anyone who contributes, very much appreciated.
 - Try and make one logical change per PR. That is not make many changes in one PR. Submit multiple PRs instead.
 - Starting with Datafaker 2.x, Java 17 is our target version. If you need anything older than that, we recommend using the 1.x versions of Datafaker instead. Note that while the 1.x is stable and free of known bugs, this branch won't receive future updates.
 
+## Git
+
+Set up the upstream repo:
+```git remote add upstream git@github.com:datafaker-net/datafaker.git```
+
+Use `git rebase` periodically to sync your work with the main branch
+
+```
+git fetch upstream
+git rebase upstream/main
+```
+
 ## Building
 
 - Should be as easy as running `mvnw clean install` on the root directory.
