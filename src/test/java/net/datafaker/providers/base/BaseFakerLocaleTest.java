@@ -1,29 +1,36 @@
 package net.datafaker.providers.base;
 
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public abstract class BaseFakerLocaleTest extends ProviderListLocaleTest<BaseFaker> {
-    protected final BaseFaker fakerUA = new BaseFaker(new Locale("uk", "UA"));
-    protected final BaseFaker fakerUZ = new BaseFaker(new Locale("uz", "UZ"));
-    protected final BaseFaker fakerIE = new BaseFaker(new Locale("en", "IE"));
-    protected final BaseFaker fakerCH = new BaseFaker(new Locale("de", "CH"));
-    protected final BaseFaker fakerBR = new BaseFaker(new Locale("pt", "BR"));
-    protected final BaseFaker fakerDK = new BaseFaker(new Locale("da", "DK"));
-    protected final BaseFaker fakerJP = new BaseFaker(new Locale("ja", "JP"));
-    protected final BaseFaker fakerBY = new BaseFaker(new Locale("be", "BY"));
-    protected final BaseFaker fakerCZ = new BaseFaker(new Locale("cs", "CZ"));
-    protected final BaseFaker fakerDE = new BaseFaker(new Locale("de", "DE"));
-    protected final BaseFaker fakerHU = new BaseFaker(new Locale("hu", "HU"));
-    protected final BaseFaker fakerAM = new BaseFaker(new Locale("hy", "AM"));
-    protected final BaseFaker fakerKR = new BaseFaker(new Locale("ko", "KR"));
-    protected final BaseFaker fakerPT = new BaseFaker(new Locale("pt", "PT"));
-    protected final BaseFaker fakerRU = new BaseFaker(new Locale("ru", "RU"));
-    protected final BaseFaker fakerSE = new BaseFaker(new Locale("sv", "SE"));
-    protected final BaseFaker fakerTH = new BaseFaker(new Locale("th", "TH"));
-    protected final BaseFaker fakerTR = new BaseFaker(new Locale("tr", "TR"));
-    protected final BaseFaker fakerCA = new BaseFaker(new Locale("ca", "CA"));
-    protected final BaseFaker fakerFR = new BaseFaker(new Locale("fr", "FR"));
 
-    protected final BaseFaker fakerArabic = new BaseFaker(new Locale("ar"));
+    protected static final List<Locale> LOCALES = List.of(
+        new Locale("uk", "UA"),
+        new Locale("uz", "UZ"),
+        new Locale("en", "IE"),
+        new Locale("de", "CH"),
+        new Locale("pt", "BR"),
+        new Locale("da", "DK"),
+        new Locale("ja", "JP"),
+        new Locale("be", "BY"),
+        new Locale("cs", "CZ"),
+        new Locale("de", "DE"),
+        new Locale("hu", "HU"),
+        new Locale("hy", "AM"),
+        new Locale("ko", "KR"),
+        new Locale("pt", "PT"),
+        new Locale("ru", "RU"),
+        new Locale("sv", "SE"),
+        new Locale("th", "TH"),
+        new Locale("tr", "TR"),
+        new Locale("ca", "CA"),
+        new Locale("fr", "FR"),
+        new Locale("ar"));
+
+    protected static final Map<Locale, BaseFaker> FAKERS_MAP = LOCALES.stream().collect(Collectors.toMap(Function.identity(), BaseFaker::new));
 
 }
